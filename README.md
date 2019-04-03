@@ -1,4 +1,6 @@
-# task
+# Task
+
+Inspired by JavaScript's `Promise.all`
 
 
 ```Go
