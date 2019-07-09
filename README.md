@@ -20,22 +20,20 @@ type item struct {
 
 func todo(input string) *item {
 	time.Sleep(1 * time.Second)
-	return &item{
+	result := &item{
 		key: input,
 	}
+	return result
 }
 
 func main() {
 	var results *item
 
-	err := task.Async(
+	task.Go(
 		task.New(todo).Params("one"),
 		task.New(todo).Params("two"),
 		task.New(todo).Params("three").Results(&results),
 	)
-	if err != nil {
-		return
-	}
 
 	fmt.Println(results)
 }
