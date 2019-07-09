@@ -28,12 +28,12 @@ func todo(input string) *item {
 func main() {
 	var results *item
 
-	ok := task.Async(
+	err := task.Async(
 		task.New(todo).Params("one"),
 		task.New(todo).Params("two"),
 		task.New(todo).Params("three").Results(&results),
 	)
-	if ok == false {
+	if err != nil {
 		return
 	}
 
